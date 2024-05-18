@@ -64,13 +64,13 @@ const text = `人は星空を見上げると
           ))
         }
       </div>
-      <form action="/qr" method="get">
+      <form action="qr" method="get" class={css({ width: "100%" })}>
         <input
           name="keyword"
           type="text"
           placeholder="あなたの物語の「キーワード」を書いてみよう"
           class={css({
-            display: "inline-block",
+            display: "block",
             mx: "auto",
             width: "90%",
             maxWidth: "500px",
@@ -90,6 +90,7 @@ const text = `人は星空を見上げると
         <button
           type="submit"
           class={css({
+            display: "block",
             width: "90%",
             maxWidth: "500px",
             mx: "auto",
