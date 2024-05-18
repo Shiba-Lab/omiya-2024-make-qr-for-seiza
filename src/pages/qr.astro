@@ -1,0 +1,84 @@
+---
+import { css } from "../../styled-system/css";
+import Layout from "../layouts/Layout.astro";
+import "../index.css";
+import "@fontsource/zen-kaku-gothic-new/400.css";
+import "@fontsource/zen-kaku-gothic-new/500.css";
+---
+
+<Layout title="星空に浮かぶストーリー">
+  <main
+    class={css({
+      display: "flex",
+      justifyContent: "center",
+      fontFamily: "Zen Kaku Gothic New",
+      textAlign: "center",
+    })}
+  >
+    <div
+      class={css({
+        display: "flex",
+        flexDirection: "column",
+        gap: "3rem",
+        mt: "4rem",
+        mb: "6rem",
+        md: {
+          width: "90%",
+        },
+        maxWidth: "1280px",
+        margin: "auto",
+      })}
+    >
+      <h1
+        class={css({
+          fontSize: "2.5rem",
+          fontWeight: "bold",
+        })}
+      >
+        星空に浮かぶストーリー
+      </h1>
+      <div class={css({ fontSize: "1.3rem" })}>QRコードをかざしてみよう。</div>
+      <div
+        class={css({
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        })}
+      >
+        <canvas
+          id="qrcode"
+          class={css({
+            width: "300px",
+            height: "300px",
+          })}></canvas>
+      </div>
+    </div>
+  </main>
+  <style>
+    body {
+      width: 100svw;
+      margin: 0;
+      padding: 1rem;
+      width: 100%;
+      max-width: calc(100% - 2rem);
+      background-color: #171923;
+      color: #a0aec0;
+      font-size: 18px;
+      line-height: 1.6;
+      font-family: "Zen Kaku Gothic New", sans-serif;
+    }
+  </style>
+  <script>
+    import QRCode from "qrcode";
+    const keyword = new URLSearchParams(window.location.search).get("keyword");
+
+    QRCode.toCanvas(document.getElementById("qrcode"), keyword, {
+      color: {
+        dark: "#171923",
+        light: "#a0aec0",
+      },
+      width: 300,
+      height: 300,
+    });
+  </script>
+</Layout>

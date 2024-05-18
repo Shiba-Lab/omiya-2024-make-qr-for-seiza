@@ -1,0 +1,130 @@
+---
+import { css } from "../../styled-system/css";
+import Layout from "../layouts/Layout.astro";
+import "../index.css";
+import "@fontsource/zen-kaku-gothic-new/400.css";
+import "@fontsource/zen-kaku-gothic-new/500.css";
+
+const text = `人は星空を見上げると
+物語を紡ぎ出してきた
+
+
+
+星々が織り成す絵は
+時間を超えて
+常に私たちの想像力をかき立てる
+
+
+
+今夜あなたが見上げる星空には
+どんな物語が浮かび上がるだろう？`;
+---
+
+<Layout title="星空に浮かぶストーリー">
+  <main
+    class={css({
+      display: "flex",
+      justifyContent: "center",
+      fontFamily: "Zen Kaku Gothic New",
+      textAlign: "center",
+    })}
+  >
+    <div
+      class={css({
+        display: "flex",
+        flexDirection: "column",
+        gap: "3rem",
+        mt: "4rem",
+        mb: "6rem",
+        md: {
+          width: "90%",
+        },
+        maxWidth: "1280px",
+        margin: "auto",
+      })}
+    >
+      <h1
+        class={css({
+          fontSize: "24px",
+          fontWeight: "bold",
+        })}
+      >
+        星空に浮かぶストーリー
+      </h1>
+      <div class={css({ fontSize: "20px" })}>
+        {
+          text.split("\n").map((line) => (
+            <p
+              class={css({
+                py: "0.2rem",
+              })}
+            >
+              {line}
+            </p>
+          ))
+        }
+      </div>
+      <form action="/qr" method="get">
+        <input
+          name="keyword"
+          type="text"
+          placeholder="あなたの物語の「キーワード」を書いてみよう"
+          class={css({
+            display: "inline-block",
+            mx: "auto",
+            width: "90%",
+            maxWidth: "500px",
+            backgroundColor: "#1A202C",
+            border: "1px solid #2D3748",
+            borderRadius: "0.4rem",
+            px: "1.2rem",
+            py: "0.5rem",
+            color: "#E2E8F0",
+            outline: "none",
+            transition: "all 0.3s",
+            "&:focus": {
+              borderColor: "#63B3ED",
+            },
+          })}
+        />
+        <button
+          type="submit"
+          class={css({
+            width: "90%",
+            maxWidth: "500px",
+            mx: "auto",
+            mt: "1rem",
+            display: "inline-block",
+            px: "1.2rem",
+            py: "0.5rem",
+            backgroundColor: "#2D3748",
+            color: "#E2E8F0",
+            border: "1px solid #2D3748",
+            borderRadius: "0.4rem",
+            cursor: "pointer",
+            transition: "all 0.3s",
+            "&:hover": {
+              backgroundColor: "#4A5568",
+              borderColor: "#A0AEC0",
+            },
+          })}
+        >
+          QRコードを生成する
+        </button>
+      </form>
+    </div>
+  </main>
+  <style>
+    body {
+      margin: 0;
+      padding: 1rem;
+      width: 100%;
+      max-width: calc(100% - 2rem);
+      background-color: #171923;
+      color: #a0aec0;
+      font-size: 16px;
+      line-height: 1.6;
+      font-family: "Zen Kaku Gothic New", sans-serif;
+    }
+  </style>
+</Layout>
