@@ -1,7 +1,9 @@
-星座GPTのプロンプトスマホ入力のためのQRコード生成サイト
+# 星座GPTのプロンプトスマホ入力のためのQRコード生成サイト
 
+メインレポジトリ↓
 https://github.com/Shiba-Lab/omiya-2024-web-app-seiza-gpt
 
+![img](./img.png)
 
 # Astro Starter Kit: Basics
 
